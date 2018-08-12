@@ -1,0 +1,75 @@
+			body
+			{ 
+				margin: 0; 
+				background: #111 url(../images/background.jpg) center/cover fixed;
+			}
+			#content
+			{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				height: 100%;
+				width: 100%;
+			}
+			#navBar
+			{
+				position: fixed;
+				height: 100%;
+				width:150px;
+				left:-110px;
+				top:0px;
+				background: #101010;
+				z-index: 2;
+			}
+			#navIcon
+			{
+				position: fixed;
+				height: 20px;
+				width: 25px;
+				background: #FFF;
+				top: 10px;
+				left: 5px;
+				z-index: 10;
+			}
+			#navElems
+			{
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				background: #101010;
+				-webkit-transition: all 1s ease;  
+				-moz-transition: all 1s ease;  
+				-o-transition: all 1s ease;  
+				-ms-transition: all 1s ease;  
+				transition: all 1s ease;
+			}
+			.navAnimation_1
+			{
+				left:-40px;
+			}
+			.navAnimation_2
+			{
+				left:110px;
+			}
+			.navElem
+			{
+				height: 30px;
+				width : 100px;
+				left: 10px;
+				position: absolute;
+				background: #FFF;
+			}
+
+			#addIDNav
+			{
+				top: 50px;
+			}
+			#addCharNav
+			{
+				top: 100px;
+			}
+			#PINav
+			{
+				top: 150px;
+			}

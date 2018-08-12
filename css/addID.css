@@ -1,0 +1,58 @@
+#container{
+				position: absolute;
+				background: #000;
+				height: 400px;
+				width: 300px;
+				opacity: 0.6;
+				top: 50%;
+				left: 50%;
+				margin-top: -200px;
+				margin-left: -150px;
+				color: #FFF;
+			}
+			#login
+			{
+				width: 100px;
+				height: 50px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				background-color: #0080FF;
+				text-align: center;
+				font-size: 25px;
+				margin-left: -50px;
+				margin-top: 105px;
+				vertical-align: middle;
+				line-height: 50px;
+				cursor: pointer;
+				border: 0;
+			}
+			#login:hover
+			{
+				
+				background-color: #00A0FF;
+			}
+			#ID_title
+			{
+				height: 90px;
+    			width: 150px;
+    			text-align: center;
+    			vertical-align: middle;
+    			line-height: 90px;
+    			position: absolute;
+    			top: 50%;
+    			left: 50%;
+    			margin-top: -205px;
+    			margin-left: -75px;
+    			font-size: 40px;
+			}
+			#formContent
+			{
+				position: absolute;
+				width: 245px;
+				height: 180px;
+				top: 50%;
+				left: 50%;
+				margin-left: -122.5px;
+				margin-top: -90px;
+			}

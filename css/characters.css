@@ -1,0 +1,86 @@
+#character_box
+{
+	position: absolute;
+	height: 420px;
+	width: 460px;
+	top: 50%;
+	left: 50%;
+	margin-left: -225px;
+	margin-top: -210px;
+	background: #000;
+}
+#character_list
+{
+	position: absolute;
+	background: #FFF;
+	width: 400px;
+	height: 270px;
+	top: 70px;
+	left: 30px;
+	overflow: hidden;
+}
+#add_character
+{
+	position: absolute;
+	background: #FFF;
+	height: 30px;
+	width: 80px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+	left: 185px;
+	bottom: 25px;
+}
+.character_ids
+{
+	position: relative;
+	left: 15px;
+	top: 15px;
+	width: 360px;
+	height: 80px;
+	border-style: dashed; 
+	margin-bottom: 15px;
+}
+.character_id_content
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60px;
+	width: 260px;
+	padding: 10px;
+	overflow: hidden;
+	font-size: 20px;
+}
+.delete_character
+{
+	position: absolute;
+	right: 0px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	width: 60px;
+	padding: 10px;
+}
+.character_wrapper
+{
+	position: absolute;
+	height: 260px;
+	width: 415px;
+	overflow-y: scroll;
+}
+.character_profile_pic
+{
+	height: 60px;
+	width: 60px;
+	position: relative;
+	top: 0;
+	left: 0;
+	background-color: #000;
+}
+.character_name
+{
+	position: relative;
+	top: -60px;
+	left: 70px;
+}
