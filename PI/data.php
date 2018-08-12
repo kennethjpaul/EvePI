@@ -1,5 +1,5 @@
 <?php
-
+$baseURL = "http://127.0.0.1/EvePI/";
 $CharName = $_GET['charName'];
 $data_url = $_GET['url'];
 
@@ -44,29 +44,32 @@ if($response3 !==false)
 		echo "Expired";
 		$url_new_token="https://login.eveonline.com/oauth/token";
 
-		$postData = array(
-		    'grant_type' => 'refresh_token',
-		    'refresh_token' => $row['refresh_token']
-		);
+		$postData = "grant_type=refresh_token&refresh_token=".$row['refreshToken'];
 
 		$auth_code = base64_encode($row['authCode']);
 		$headers[0] = 'Authorization: Basic '.$auth_code;
 		$headers[1] = 'Content-Type: application/x-www-form-urlencoded';
 		$headers[2] = 'Host: login.eveonline.com';
-		$headers[3] = 'Accept: application/json';
-
 
 		$ch4 = curl_init();
 		curl_setopt($ch4,CURLOPT_URL,$url_new_token);
-		curl_setopt($ch4, CURLOPT_POSTFIELDS, json_encode($postData));
+		curl_setopt($ch4, CURLOPT_POSTFIELDS, $postData);
 		curl_setopt($ch4, CURLOPT_HTTPHEADER,$headers);
 		curl_setopt($ch4, CURLOPT_POST, true);
 		curl_setopt($ch4,CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch4, CURLOPT_SSL_VERIFYPEER, false);
 
-		$response = curl_exec($ch);
+		$response = curl_exec($ch4);
+		$result = json_decode($response);
+		$sql_update = "UPDATE ".$tb2Name." SET accessToken='".$result->{'access_token'}."' WHERE characterName='".$CharName."'";
 
-		echo var_dump(json_decode($reponse));
+		$conn_data->query($sql_update);
+
+		$conn_data->close();
+
+		header("Location: ".$baseURL."PI/data?charName=".$CharName."&url=".$data_url );
+		exit();
+		
 	}
 	else
 	{
