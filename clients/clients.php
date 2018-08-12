@@ -19,10 +19,10 @@
 		$(".delete_client").click(function()
 		{
 			var clientName = $(this).parent().children('.client_id_content').children('.client_name').html();
-			
+			$("#dialog p").html("Do you want to delete the ID -'"+clientName+"' ?");
 			$( "#dialog" ).dialog({
 				buttons: {
-				  "Delete": function() {
+				  "Delete ID": function() {
 				    
 				    console.log(clientName);
 				    window.location.replace(baseUrl+"clients/deleteID.php?name="+clientName);
@@ -118,8 +118,9 @@ Add
 include('../navigation/navigation_end.php');
 
 echo '	<div id="dialog" title="Error">
-  <p>All fields must be filled.</p>
+  <p></p>
 </div>';
+
 ?>
 </body>
 </html>

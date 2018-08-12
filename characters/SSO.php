@@ -30,6 +30,7 @@ if ($conn->query($sql_table_3) === TRUE)
 
 	if ($conn->query($sql_data) === TRUE) 
 	{
+		$conn->close();
 		header("Location: https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=".$url_encode."callback&client_id=".$clientID."&scope=esi-planets.manage_planets.v1&state=uniquestate123");
 		exit();
 	}

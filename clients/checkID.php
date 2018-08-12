@@ -30,7 +30,7 @@ else
 {
 	$url=$baseURL ."clients/clients";
 }
-
+$conn_data_check->close();
 header("Location: ".$url); /* Redirect browser */
 exit();
 

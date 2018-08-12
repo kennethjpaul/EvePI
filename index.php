@@ -52,9 +52,10 @@ elseif ($charTableEmpty)
 }
 else
 {
-	$url=$baseURL."main.html";
+	$url=$baseURL."PI/main";
 }
 
+$conn_data_check->close();
 header("Location: ".$url); /* Redirect browser */
 exit(); 
 

@@ -54,6 +54,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
 $response = curl_exec($ch);
 
+curl_close ($ch);
 
 if($response !==false)
 {
@@ -79,6 +80,7 @@ if($response !==false)
 
 	$response2 = curl_exec($ch2);
 
+	curl_close ($ch2);
 	if($response2 !==false)
 	{
 		$parseResponse2 = json_decode($response2);
@@ -95,12 +97,13 @@ if($response !==false)
 
 		if($query_check->{'num_rows'}>0)
 		{
+			$conn->close();
 			header("Location: ".$baseURL."error.php?error=2" ); /* Redirect browser */
 			exit();
 		}
 
 
-		$sql_add_char ="INSERT INTO ".$tb2Name." (characterID,characterName,accessToken,refreshToken,timeStamp) VALUES ('".$character_ID."','".$charcter_name."','".$access_token."','".$refresh_token."','".$date."')";
+		$sql_add_char ="INSERT INTO ".$tb2Name." (characterID,characterName,accessToken,refreshToken,authCode) VALUES ('".$character_ID."','".$charcter_name."','".$access_token."','".$refresh_token."','".$auth_code."')";
 
 		if ($conn->query($sql_add_char)=== TRUE) 
 		{
@@ -122,7 +125,7 @@ if($response !==false)
 else {
   print "Could not get a response";
 }
-
+$conn->close();
 
 ?>
 

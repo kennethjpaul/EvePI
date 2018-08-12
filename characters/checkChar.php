@@ -51,6 +51,7 @@ else
 	$url=$baseURL ."characters/characters";
 }
 
+$conn_data_check->close();
 header("Location: ".$url); /* Redirect browser */
 exit(); 
 

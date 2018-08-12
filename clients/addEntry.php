@@ -37,4 +37,6 @@
 		    echo "Error: " . $sql . "<br>" . $conn_table->error;
 	}
 
+	$conn_table->close();
+
 ?> 

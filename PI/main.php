@@ -16,30 +16,12 @@
 	var baseUrl ="http://127.0.0.1/EvePI/";
 	$(function()
 	{
-		$(".delete_character").click(function()
-		{
-			var charactertName = $(this).parent().children('.character_id_content').children('.character_name').html();
-			$("#dialog p").html("Do you want to delete the character -'"+charactertName+"' ?");
-			$( "#dialog" ).dialog({
-				buttons: {
-				  "Delete Character": function() {
-				    console.log(charactertName);
-				    window.location.replace(baseUrl+"characters/deleteCharacter.php?id="+charactertName);
+		$(".character_ids").click(function(){
 
-				  },
-				  Cancel: function() {
-				    $( this ).dialog( "close" );
-				  }
-				},
-			});
-			$( "#dialog" ).dialog( "open" );
-
-		})
-
-		$("#add_character").click(function()
-		{
-			 window.location.replace(baseUrl+"characters/addChar");
-		})
+			var name = $(this).children('.character_id_content').children('.character_name').html();
+			console.log(name);
+			window.location.replace(baseUrl+"PI/data.php?charName="+name+"&url=/planets/");
+		});
 
 		$( "#dialog" ).dialog({
 		  resizable: false,
@@ -74,14 +56,14 @@ $dbName ="EvePI";
 $tb2Name = "chartable";
 
 
-$conn = new mysqli($servername, $username, $password, $dbName);
+$conn_main_PI = new mysqli($servername, $username, $password, $dbName);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn_main_PI->connect_error) {
+    die("Connection failed: " . $conn_main_PI->connect_error);
 } 
 
 $sql = "SELECT characterID,characterName FROM ".$tb2Name;
-$result = $conn->query($sql);
+$result = $conn_main_PI->query($sql);
 
 
 // output data of each row
@@ -93,26 +75,19 @@ while($row = $result->fetch_assoc())
 <span class="character_name">'.$row['characterName'].'</span>
 </br>
 </div>
-<div class="delete_character">
-Delete
-</div>
 </div>';
 }
 
 
-$conn->close();
+$conn_main_PI->close();
 
 echo'</div></div>
-<div id="add_character">
-Add
-</div>
-
  </div>';
 
 include('../navigation/navigation_end.php');
 
-echo '	<div id="dialog" title="Delete Character">
-  <p></p>
+echo '	<div id="dialog" title="Error">
+  <p>All fields must be filled.</p>
 </div>';
 ?>
 </body>

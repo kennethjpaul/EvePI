@@ -37,7 +37,7 @@ clientID VARCHAR(255) NOT NULL, secretkey VARCHAR(255) NOT NULL)";
 	if ($conn_database->query($sql_table_1) === TRUE) 
 	{
 
-		$sql_table_2 = "CREATE TABLE IF NOT EXISTS ".$tb2Name."(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, characterID VARCHAR(30) NOT NULL, characterName VARCHAR(30) NOT NULL, accessToken VARCHAR(255) NOT NULL, refreshToken VARCHAR(255) NOT NULL,timeStamp TIMESTAMP NOT NULL)";
+		$sql_table_2 = "CREATE TABLE IF NOT EXISTS ".$tb2Name."(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, characterID VARCHAR(30) NOT NULL, characterName VARCHAR(30) NOT NULL, accessToken VARCHAR(255) NOT NULL, refreshToken VARCHAR(255) NOT NULL,authCode VARCHAR(255) NOT NULL)";
 
 		if ($conn_database->query($sql_table_2) === TRUE) 
 		{
