@@ -89,6 +89,17 @@ if($response !==false)
 		$charcter_name= $parseResponse2->{'CharacterName'};
 		$date =  date('Y-m-d H:i:s', substr($timestamp, 0, -3));
 
+		$sql_check = "SELECT * FROM ".$tb2Name." WHERE characterID='".$character_ID."'";
+
+		$query_check = $conn->query($sql_check);
+
+		if($query_check->{'num_rows'}>0)
+		{
+			header("Location: ".$baseURL."error.php?error=2" ); /* Redirect browser */
+			exit();
+		}
+
+
 		$sql_add_char ="INSERT INTO ".$tb2Name." (characterID,characterName,accessToken,refreshToken,timeStamp) VALUES ('".$character_ID."','".$charcter_name."','".$access_token."','".$refresh_token."','".$date."')";
 
 		if ($conn->query($sql_add_char)=== TRUE) 

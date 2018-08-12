@@ -1,0 +1,29 @@
+#error_box
+{
+	height: 300px;
+	width: 500px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -250px;
+	background: #000;
+
+}
+#error_content
+{
+	height: 200px;
+	width: 400px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	background: #FFF;
+	text-align: center;
+	display: table;
+}
+
+#error_content p
+{
+	display: table-cell;
+	vertical-align: middle;
+}
